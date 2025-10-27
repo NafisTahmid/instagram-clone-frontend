@@ -7,9 +7,10 @@ const useGetAllPosts = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const getAllPosts = async () => {
+      // import.meta.env.VITE_BACKEND_URL
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/v1/post/all",
+          `${import.meta.env.VITE_BACKEND_URL}/post/all`,
           { withCredentials: true }
         );
         if (response.data.success === true) {

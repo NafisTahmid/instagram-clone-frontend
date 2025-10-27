@@ -9,9 +9,10 @@ const useGetUserProfile = (userId) => {
   useEffect(() => {
     const getUserProfile = async () => {
       console.log("Calling suggested users hook");
+      // import.meta.env.VITE_BACKEND_URL
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/user/${userId}/profile`,
+          `${import.meta.env.VITE_BACKEND_URL}/user/${userId}/profile`,
           { withCredentials: true }
         );
         if (response.data.success === true) {
